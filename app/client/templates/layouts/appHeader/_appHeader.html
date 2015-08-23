@@ -1,0 +1,84 @@
+<template name="_appHeader">
+
+    <header class="main-header">
+        <!-- Logo -->
+        <a href="{{pathFor 'home'}}" class="logo"><b>Pinksphere</b>Chat</a>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top" role="navigation">
+            <!-- Sidebar toggle button-->
+            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                <span class="sr-only">Toggle navigation</span>
+            </a>
+
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    {{#if currentUser}}
+                        <!-- Messages: style can be found in dropdown.less-->
+
+                        <!-- Notifications: style can be found in dropdown.less -->
+                        {{#if isUserMaster}}
+                            <li class="dropdown notifications-menu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-bell-o"></i>
+                                    <span class="label label-warning">{{notificationCount}}</span>
+                                </a>
+
+                                <ul class="dropdown-menu">
+                                    <li class="header">You have {{notificationCount}} notifications</li>
+                                    <li>
+                                        <!-- inner menu: contains the actual data -->
+                                        <ul class="menu">
+                                            {{#each notifications}}
+                                                {{>NotificationList disciple=this.disciple discipleMail=this.discipleMail}}
+                                            {{/each}}
+
+                                        </ul>
+                                    </li>
+                                    <li class="footer"><a href="#">View all</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        {{/if}}
+                        <!-- Tasks: style can be found in dropdown.less -->
+
+                        <!-- User Account: style can be found in dropdown.less -->
+                        <li class="dropdown user user-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <img src="images/user2-160x160.jpg" class="user-image" alt="User Image"/>
+                                <span class="hidden-xs">{{userEmail}}</span>
+
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- User image -->
+                                <li class="user-header">
+                                    <img src="images/user2-160x160.jpg" class="img-circle" alt="User Image"/>
+
+                                    <p>
+                                        {{userEmail}}
+
+                                    </p>
+                                </li>
+                                <!-- Menu Body -->
+
+                                <!-- Menu Footer-->
+                                <li class="user-footer">
+                                    <div class="pull-left">
+                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                    </div>
+                                    <div class="pull-right">
+                                        <a href="#" data-action="logout" class="btn btn-default btn-flat">Sign out</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    {{else}}
+                        <a href="{{ pathFor 'atSignIn' }}" class="btn btn-default navbar-btn">Sign in</a>
+                        <a href="{{ pathFor 'atSignUp' }}" class="btn btn-primary navbar-btn">Register</a> {{/if}}
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Left side column. contains the logo and sidebar -->
+    {{> Sidebar}}
+</template>

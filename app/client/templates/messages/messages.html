@@ -1,0 +1,12 @@
+<template name="Messages">
+    <div class="message-history">
+        {{#if Template.subscriptionsReady}}
+            {{#each messages}}
+                {{> Message text=text createdAt=createdAt user=user }}
+            {{/each}}
+        {{else}}
+            Loading…
+        {{/if}}
+
+    </div>
+</template>

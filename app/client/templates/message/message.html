@@ -1,0 +1,16 @@
+<template name="Message">
+      <div class="message">
+          <div class="direct-chat-msg {{isRight}}">
+              <!-- /.direct-chat-text -->
+
+          <div class="direct-chat-info clearfix">
+              <span class="direct-chat-name pull-left">{{userEmailFromId user}}</span>
+              <span class="direct-chat-timestamp pull-right">{{timestampToTime createdAt}}</span>
+          </div><!-- /.chat info -->
+          <img class="direct-chat-img" src="images/user1-128x128.jpg" alt="message user image"><!-- /.chat-img -->
+          <div class="direct-chat-text">
+              {{text}}
+          </div>
+          </div>
+      </div>
+</template>

@@ -1,0 +1,35 @@
+<template name="Chatroom">
+    {{>_appHeader}}
+    <div class="chatroom">
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <h1>
+                    Chatroom
+                    <small>Master Disciple Chat-Room</small>
+                    <div class="team-menu">Master - {{chatName}} Room</div>
+                </h1>
+
+            </section>
+
+            <!-- Main content -->
+            {{#if isDissiple}}
+        <section class="content">
+
+
+                {{> Messages text='Message text'}}
+            </section>
+                <section class="content">
+                    {{> InputBox}}
+                </section>
+            {{else}}
+            <section class="content">
+                Sorry Not your turn yet.
+                <button id="requestSession">Request A session</button>
+
+            </section>
+
+            {{/if}}
+        </div>
+    </div>
+</template>

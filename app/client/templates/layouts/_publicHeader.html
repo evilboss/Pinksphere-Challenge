@@ -1,0 +1,40 @@
+<template name="_publicHeader">
+
+    <header class="main-header">
+        <!-- Logo -->
+        <a href="{{pathFor 'home'}}" class="logo"><b>Pinksphere</b>Challenge</a>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top" role="navigation">
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    {{#if currentUser}}
+                    <!-- Messages: style can be found in dropdown.less-->
+                        <a href="{{ pathFor 'dashboard' }}" class="btn btn-default navbar-btn">Dashboard</a>
+                    <!-- User Account: style can be found in dropdown.less -->
+                    <li class="dropdown user user-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <img src="images/user2-160x160.jpg" class="user-image" alt="User Image" />
+                            <span class="hidden-xs">{{userEmail}}</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- User image -->
+
+                            <!-- Menu Footer-->
+                            <li class="user-footer">
+                                <div class="pull-left">
+                                    <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                </div>
+                                <div class="pull-right">
+                                    <a href="#" data-action="logout" class="btn btn-default btn-flat">Sign out</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    {{else}}
+                    <a href="{{ pathFor 'atSignIn' }}" class="btn btn-default navbar-btn">Sign in</a>
+                    <a href="{{ pathFor 'atSignUp' }}" class="btn btn-primary navbar-btn">Register</a> {{/if}}
+                </ul>
+            </div>
+        </nav>
+    </header>
+</template>
